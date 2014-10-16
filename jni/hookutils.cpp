@@ -14,6 +14,7 @@ static inline void get_cstr_from_jstring(JNIEnv* env, jstring jstr,
 	env->ReleaseStringUTFChars(jstr, cstr);
 }
 
+//test
 extern "C" jstring JNICALL Java_com_swathook_HookUtils_stringFromJNI(
 		JNIEnv* env, jobject thiz) {
 	char szBuf[512];
@@ -25,25 +26,7 @@ extern "C" jstring JNICALL Java_com_swathook_HookUtils_stringFromJNI(
 }
 
 extern "C" jint JNICALL JNI_OnLoad(JavaVM * vm, void * reserved) {
-
-	int i = 0;
-	i = i + 1;
-	LOGD("111,%d", i);
 	return JNI_VERSION_1_6;
-	return -1;
-}
-
-extern "C" jint Java_com_swathook_HookUtils_hookMethodNativeOr(JNIEnv *env,
-		jobject thiz, jstring cls, jstring methodname, jstring methodsig,
-		jboolean isstatic) {
-	HookInfo *info = (HookInfo *) malloc(sizeof(HookInfo));
-
-	get_cstr_from_jstring(env, cls, &info->classDesc);
-	get_cstr_from_jstring(env, methodname, &info->methodName);
-	get_cstr_from_jstring(env, methodsig, &info->methodSig);
-
-	info->isStaticMethod = isstatic == JNI_TRUE;
-	return java_method_hook(env, info,NULL);
 }
 
 extern "C" jint  Java_com_swathook_HookUtils_hookMethodNative(JNIEnv *env,

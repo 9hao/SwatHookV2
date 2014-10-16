@@ -6,12 +6,10 @@ public class HookCallBack{
 
 	protected void beforeHookedMethod(HookParam par)
 	{
-		System.out.println("HookCallBack->beforeHookedMethod");
 	}
 	
 	protected void afterHookedMethod(HookParam par)
 	{
-		System.out.println("HookCallBack->afterHookedMethod");
 	}
 	
 	public static class HookParam

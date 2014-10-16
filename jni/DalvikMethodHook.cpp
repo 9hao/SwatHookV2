@@ -505,7 +505,7 @@ static void handleInvoker(const u4* args, JValue* pResult, const Method* method,
 
 	if (returnEarly == JNI_FALSE) {
 		//invoke Original Method
-		LOGE("invoke Original Method");
+		LOGD("invoke Original Method");
 		result = dvmInvokeMethod(thisObject, originalMethod, argsArray,
 				(ArrayObject *) info->paramTypes,
 				(ClassObject *) info->returnType,
